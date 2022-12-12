@@ -20,6 +20,8 @@ stage("Inmput Version"){
 	steps{
 		script{
 	def IMAGEVERSION=input ( message: 'Enter the Build version', ok: 'Submit', parameters: [string(name: 'ImageVersion',defaultValue: ' ',description: ' ')])
+	
+	echo '$IMAGEVERSION'
 	}
 	}	
 }
@@ -33,7 +35,7 @@ stage("Build package"){
 
 stage("Build Image"){
 	steps{
-	sh 'docker build -t $IMAGENAME:$IMAGEVERSION .'
+	sh 'docker build -t $IMAGENAME/$IMAGEVERSION .'
 	}
 	}
 
@@ -44,12 +46,12 @@ stage("login to GitHub"){
 	}
 stage("Tag Image"){
 	steps{
-	sh 'docker tag $IMAGENAME:$IMAGEVERSION ghcr.io:/$IMAGENAME:$IMAGEVERSION'
+	sh 'docker tag $IMAGENAME:$IMAGEVERSION ghcr.io:/$IMAGENAME/$IMAGEVERSION'
 	}
 	}
 stage("Push Image"){
 	steps{
-	sh 'docker push ghcr.io:/$IMAGENAME:$IMAGEVERSION'
+	sh 'docker push ghcr.io:/$IMAGENAME/$IMAGEVERSION'
 	}
 	}
 
