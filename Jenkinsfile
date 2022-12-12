@@ -5,7 +5,7 @@ agent any
   
 tools{
    maven "mvn" 
-   docker "dockr"
+  
   }
   
 environment{
@@ -30,18 +30,18 @@ stage("Build package"){
 stage("Build Image"){
 	steps{
 	sh "scp -r target/* /var/lib/jenkins/workspace/Fantasy_Test/Dockerfile/"
-	sh 'dockr build -t $IMAGENAME/$IMAGEVERSION .'
+	sh 'sudo docker build -t $IMAGENAME/$IMAGEVERSION .'
 	}
 	}
 
 stage("login to GitHub"){
 	steps{
-	sh 'echo $GitHub_Cred_PWD | docker login ghcr.io -u $GitHub_Cred_USR --password-stgin'
+	sh 'echo $GitHub_Cred_PWD | sudo docker login ghcr.io -u $GitHub_Cred_USR --password-stgin'
 	}
 	}
 stage("Tag Image"){
 	steps{
-	sh 'dockr tag $IMAGENAME:$IMAGEVERSION ghcr.io:/$IMAGENAME/$IMAGEVERSION'
+	sh 'sudo dockr tag $IMAGENAME:$IMAGEVERSION ghcr.io:/$IMAGENAME/$IMAGEVERSION'
 	}
 	}
 stage("Push Image"){
