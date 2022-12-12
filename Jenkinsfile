@@ -16,12 +16,13 @@ IMAGENAME='gcpbkash'
 stages{
 
 stage("Version Input"){
+	steps{
 	input{
 	massage "Enter the Build version"
 	ok "Submit"
 	parameters{
 	string(name: 'IMAGEVERSION', defaultValue: 'V-0', trim: true)
-
+	}
 	}
 	}
 	}
