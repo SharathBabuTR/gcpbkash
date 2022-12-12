@@ -18,10 +18,11 @@ stages{
 
 stage("foo"){
 	steps{
+		script{
 	IMAGEVERSION = input ( message: 'Enter the Build version', ok: 'Submit', parameters: [string(name: 'IMAGEVERSION',defaultValue: ' ',description: ' ')])
 	}
 	}	
-
+}
 stage("Build package"){
 
 	steps{
