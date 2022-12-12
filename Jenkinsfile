@@ -27,7 +27,7 @@ stage("Version Inpu"){
 	}
 	}
 	}	
-	
+}
 stage("Build package"){
 
 	steps{
