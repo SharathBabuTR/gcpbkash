@@ -15,21 +15,17 @@ IMAGENAME='gcpbkash'
 
 stages{
 
-stage("Version Input"){
-	steps{
+stage("Version Input and build package"){
 	input{
 	massage "Enter the Build version"
 	ok "Submit"
 	parameters{
 	string(name: 'IMAGEVERSION', defaultValue: 'V-0', trim: true)
-	}
-	}
-	}
-	}
 
-    
-stage("build package"){
-    steps{
+	}
+	}
+	
+	steps{
     sh 'mvn -B -DskipTests clean package'
     }
     }
