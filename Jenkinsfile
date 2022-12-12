@@ -17,7 +17,7 @@ stages{
 
 stage("Version Input and build package"){
 	input{
-	massage "Enter the Build version"
+	message "Enter the Build version"
 	ok "Submit"
 	parameters{
 	string(name: 'IMAGEVERSION', defaultValue: 'V-0', trim: true)
@@ -48,7 +48,7 @@ stage("Tag Image"){
 	}
 stage("Push Image"){
 	Steps{
-	sh 'docker psuh ghcr.io:/$IMAGENAME:$IMAGEVERSION'
+	sh 'docker push ghcr.io:/$IMAGENAME:$IMAGEVERSION'
 	}
 	}
 
