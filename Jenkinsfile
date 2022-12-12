@@ -47,7 +47,7 @@ stage("Tag Image"){
 	}
 	}
 stage("Push Image"){
-	Steps{
+	steps{
 	sh 'docker push ghcr.io:/$IMAGENAME:$IMAGEVERSION'
 	}
 	}
