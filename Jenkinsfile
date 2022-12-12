@@ -18,11 +18,10 @@ stages{
 
 stage("foo"){
 	steps{
-		script{
-			evn.IMAGEVERSION = input ( message: 'Enter the Build version', ok: 'Submit', parameters: [string(name: 'IMAGEVERSION',defaultValue: ' ',description: ' ')])
+	IMAGEVERSION = input ( message: 'Enter the Build version', ok: 'Submit', parameters: [string(name: 'IMAGEVERSION',defaultValue: ' ',description: ' ')])
 	}
 	}	
-}
+
 stage("Build package"){
 
 	steps{
