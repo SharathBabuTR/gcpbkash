@@ -28,7 +28,7 @@ stage("Build package"){
 
 stage("Build Image"){
 	steps{
-	sh 'docker build -t $IMAGENAME/$IMAGEVERSION .'
+	sh 'docker build -t $IMAGENAME/$IMAGEVERSION -f /var/lib/jenkins/workspace/Fantasy_Test/target/'
 	}
 	}
 
