@@ -11,7 +11,14 @@ environment{
 
 GitHub_Cred=credentials('SharathBabuTR')
 IMAGENAME='gcpbkash'
-	input{
+	
+}
+
+stages{
+
+stage("Version Inpu"){
+	steps{
+	env.IMAGEVERSION= input{
 	message "Enter the Build version"
 	ok "Submit"
 	parameters{
@@ -19,12 +26,9 @@ IMAGENAME='gcpbkash'
 
 	}
 	}
+	}	
 	
-}
-
-stages{
-
-stage("Version Input and build package"){
+stage("Build package"){
 
 	steps{
     sh 'mvn -B -DskipTests clean package'
