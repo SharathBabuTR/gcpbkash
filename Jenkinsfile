@@ -19,7 +19,7 @@ stages{
 stage("Version Inpu"){
 	steps{
 		script{
-			IMAGEVERSION = input ( message: 'Enter the Build version', ok: 'Submit', parameters: [string(name: 'IMAGEVERSION',defaultValue: ' ',description: ' ')])
+			evn.IMAGEVERSION = input ( message: 'Enter the Build version', ok: 'Submit', parameters: [string(name: 'IMAGEVERSION',defaultValue: ' ',description: ' ')])
 	}
 	}	
 }
