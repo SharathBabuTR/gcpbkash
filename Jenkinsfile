@@ -28,7 +28,8 @@ stage("Build package"){
 
 stage("Build Image"){
 	steps{
-	sh 'docker build -t $IMAGENAME/$IMAGEVERSION -f /var/lib/jenkins/workspace/Fantasy_Test/target/'
+	sh "cp target/* /var/lib/jenkins/workspace/Fantasy_Test/Dockerfile/"
+	sh 'docker build -t $IMAGENAME/$IMAGEVERSION .'
 	}
 	}
 
