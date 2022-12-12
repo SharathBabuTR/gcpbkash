@@ -5,6 +5,7 @@ agent any
   
 tools{
    maven "mvn" 
+   docker "dockr"
   }
   
 environment{
@@ -29,7 +30,7 @@ stage("Build package"){
 stage("Build Image"){
 	steps{
 	sh "scp -r target/* /var/lib/jenkins/workspace/Fantasy_Test/Dockerfile/"
-	sh 'docker build -t $IMAGENAME/$IMAGEVERSION .'
+	sh 'dockr build -t $IMAGENAME/$IMAGEVERSION .'
 	}
 	}
 
@@ -40,12 +41,12 @@ stage("login to GitHub"){
 	}
 stage("Tag Image"){
 	steps{
-	sh 'docker tag $IMAGENAME:$IMAGEVERSION ghcr.io:/$IMAGENAME/$IMAGEVERSION'
+	sh 'dockr tag $IMAGENAME:$IMAGEVERSION ghcr.io:/$IMAGENAME/$IMAGEVERSION'
 	}
 	}
 stage("Push Image"){
 	steps{
-	sh 'docker push ghcr.io:/$IMAGENAME/$IMAGEVERSION'
+	sh 'dockr push ghcr.io:/$IMAGENAME/$IMAGEVERSION'
 	}
 	}
 
