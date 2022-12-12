@@ -18,7 +18,7 @@ stages{
 
 stage("Version Inpu"){
 	steps{
-	env.IMAGEVERSION= input message:"Enter the Build version", ok:"Submit",	parameters[string(name: 'IMAGEVERSION', defaultValue: 'V-0', trim: true)]
+	env.IMAGEVERSION= input message:"Enter the Build version", ok:"Submit",	parameters[string(name: 'IMAGEVERSION', defaultValue: ' ', trim: true)]
 	}
 	}	
 
