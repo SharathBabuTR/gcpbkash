@@ -11,7 +11,7 @@ environment{
 
 GitHub_Cred=credentials('SharathBabuTR')
 IMAGENAME='gcpbkash'
-IMAGEVERSION='v1'
+IMAGEVERSION='v1:latest'
 	
 }
 
