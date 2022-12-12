@@ -18,10 +18,11 @@ stages{
 
 stage("Version Inpu"){
 	steps{
-	sh 'env.IMAGEVERSION = input message: 'Enter the Build version', ok: 'Submit', parameters: [string(name: 'IMAGEVERSION',defaultValue: ' ',description: ' ')]'
+		scripts{
+			IMAGEVERSION = input message: 'Enter the Build version', ok: 'Submit', parameters: [string(name: 'IMAGEVERSION',defaultValue: ' ',description: ' ')]
 	}
 	}	
-
+}
 stage("Build package"){
 
 	steps{
