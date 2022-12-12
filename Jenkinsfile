@@ -16,10 +16,10 @@ IMAGENAME='gcpbkash'
 
 stages{
 
-stage("foo"){
+stage("Inmput Version"){
 	steps{
 		script{
-	IMAGEVERSION = input ( message: 'Enter the Build version', ok: 'Submit', parameters: [string(name: 'ImageVersion',defaultValue: ' ',description: ' ')])
+	IMAGEVERSION=input ( message: 'Enter the Build version', ok: 'Submit', parameters: [string(name: 'ImageVersion',defaultValue: ' ',description: ' ')])
 	}
 	}	
 }
