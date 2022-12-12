@@ -29,7 +29,7 @@ stage("Build package"){
 
 stage("Build Image"){
 	steps{
-	sh "scp -r target/* /var/lib/jenkins/workspace/Fantasy_Test/Dockerfile/"
+	
 	sh 'sudo docker build -t $IMAGENAME/$IMAGEVERSION .'
 	}
 	}
