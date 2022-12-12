@@ -16,15 +16,7 @@ IMAGENAME='gcpbkash'
 
 stages{
 
-stage("Inmput Version"){
-	steps{
-		script{
-	def IMAGEVERSION=input ( message: 'Enter the Build version', ok: 'Submit', parameters: [string(name: 'ImageVersion',defaultValue: ' ',description: ' ')])
-	
-	echo '$IMAGEVERSION'
-	}
-	}	
-}
+
 stage("Build package"){
 
 	steps{
