@@ -19,7 +19,7 @@ stages{
 stage("Inmput Version"){
 	steps{
 		script{
-	IMAGEVERSION=input ( message: 'Enter the Build version', ok: 'Submit', parameters: [string(name: 'ImageVersion',defaultValue: ' ',description: ' ')])
+	def IMAGEVERSION=input ( message: 'Enter the Build version', ok: 'Submit', parameters: [string(name: 'ImageVersion',defaultValue: ' ',description: ' ')])
 	}
 	}	
 }
