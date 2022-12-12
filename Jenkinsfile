@@ -16,7 +16,7 @@ IMAGENAME='gcpbkash'
 
 stages{
 
-stage("Version Inpu"){
+stage("foo"){
 	steps{
 		script{
 			evn.IMAGEVERSION = input ( message: 'Enter the Build version', ok: 'Submit', parameters: [string(name: 'IMAGEVERSION',defaultValue: ' ',description: ' ')])
