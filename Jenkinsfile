@@ -33,7 +33,7 @@ stage("Build package"){
 
 stage("Build Image"){
 	steps{
-	sh 'docker build $IMAGENAME:$IMAGEVERSION .'
+	sh 'docker build -t $IMAGENAME:$IMAGEVERSION .'
 	}
 	}
 
